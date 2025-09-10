@@ -10,6 +10,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+package com.example;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Converter {
 
     public static void main(String[] args) {
@@ -24,7 +36,7 @@ public class Converter {
             // Read input JSON
             Input input = gson.fromJson(reader, Input.class);
 
-            if (input != null && input.getNodos() != null) {
+            if (input != null && input.getNodos() != null && !input.getNodos().isEmpty()) {
                 // Create features
                 List<Feature> features = new ArrayList<>();
 
@@ -52,9 +64,15 @@ public class Converter {
 
                 // Print GeoJSON
                 System.out.println(gson.toJson(geoJSON));
+            } else {
+                System.err.println("El archivo JSON no es válido o no contiene 'nodos'.");
             }
 
-        } catch (IOException e) {
+        } catch (java.io.FileNotFoundException e) {
+            System.err.println("ERROR: No se pudo encontrar el archivo '" + inputFile + "'.");
+            System.err.println("Asegúrate de que el archivo exista en el mismo directorio desde donde ejecutas el comando, o proporciona la ruta completa.");
+        } catch (Exception e) {
+            System.err.println("Ocurrió un error al procesar el archivo:");
             e.printStackTrace();
         }
     }
