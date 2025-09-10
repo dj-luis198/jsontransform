@@ -1,0 +1,33 @@
+{
+  "error": 0,
+  "nodos": [
+    {
+      "latitud": -34.6037,
+      "longitud": -58.3816,
+      "parada": false,
+      "codigoParada": "",
+      "descripcionParada": ""
+    },
+    {
+      "latitud": -34.6083,
+      "longitud": -58.3739,
+      "parada": true,
+      "codigoParada": "123",
+      "descripcionParada": "Parada Obelisco"
+    },
+    {
+      "latitud": -34.6133,
+      "longitud": -58.366,
+      "parada": false,
+      "codigoParada": "",
+      "descripcionParada": ""
+    },
+    {
+      "latitud": -34.6179,
+      "longitud": -58.3683,
+      "parada": true,
+      "codigoParada": "456",
+      "descripcionParada": "Parada San Telmo"
+    }
+  ]
+}
